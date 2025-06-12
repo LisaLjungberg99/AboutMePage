@@ -30,8 +30,13 @@
     <main>
       <section>
         <h2>Self-portrait</h2>
-        <img src="selfportrait.jpg" alt="Self-portrait of Lisa Ljungberg" />
-        <p>Taken with my digital camera.</p>
+        <figure>
+          <img src="selfportrait.jpg" alt="Self-portrait of Lisa Ljungberg" />
+          <figcaption>
+            Taken with my digital camera in
+            <time datetime="2024-05">May 2024</time>.
+          </figcaption>
+        </figure>
       </section>
     </main>
     <aside>
@@ -68,12 +73,13 @@
         <button type="submit" disabled>Send (coming soon)</button>
       </form>
     </aside>
-
     <footer>
       <section>
         <h3>Contact Information</h3>
-        <p>Email: lisa@example.com</p>
-        <p>Phone: +46 123 456 789</p>
+        <address>
+          Email: <a href="mailto:lisa@example.com">lisa@example.com</a><br />
+          Phone: +46 123 456 789
+        </address>
       </section>
 
       <section>
