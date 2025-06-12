@@ -1,0 +1,47 @@
+/* Grundläggande layout med Grid */
+body {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0.5em;
+
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 0.5em;
+}
+
+p {
+  padding: 1em;
+}
+
+header {
+  background: red;
+  min-height: 200px;
+
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+nav {
+  background: blue;
+}
+
+main {
+  background: green;
+}
+
+section {
+  background: orange;
+}
+
+aside {
+  background: pink;
+
+  grid-column-start: 3;
+}
+
+footer {
+  background: brown;
+
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
