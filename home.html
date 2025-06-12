@@ -2,19 +2,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
-    <meta name="application-name" content="AboutMePage" />
-    <meta name="author" content="Lisa Ljungberg" />
-    <meta
-      name="description"
-      content="This page is about me. It also contains my portfolio"
-    />
-    <meta name="generator" content="CodeSandbox" />
-    <meta
-      name="keywords"
-      content="portfolio, about me, Lisa Ljungberg, web developer, personal site, projects, resume"
-    />
+    <title>About Me - Lisa Ljungberg</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
@@ -28,35 +18,28 @@
         </ul>
       </nav>
     </header>
+
     <main>
       <section>
         <h2>Portrait</h2>
-        <figure>
-          <picture>
-            <source
-              media="(max-width: 600px)"
-              srcset="images/portrait-mobile.png"
-              type="image/png"
-            />
-            <source
-              media="(min-width: 601px)"
-              srcset="images/portrait-desktop.png"
-              type="image/png"
-            />
-            <img
-              src="images/portrait-desktop.png"
-              alt="Portrait of Lisa Ljungberg"
-            />
-          </picture>
-          <figcaption>
-            Taken by Edvin with my iPhone,
-            <time datetime="2024-08">August 2024</time>.
-          </figcaption>
-        </figure>
+        <picture>
+          <source
+            media="(max-width: 600px)"
+            srcset="images/portrait-mobile.png"
+          />
+          <img
+            src="images/portrait-desktop.png"
+            alt="Portrait of Lisa Ljungberg"
+          />
+        </picture>
+        <figcaption>
+          Taken by Edvin with my iPhone,
+          <time datetime="2024-08">August 2024</time>.
+        </figcaption>
       </section>
     </main>
     <aside>
-      <h3>Contact me</h3>
+      <h3>Contact Me</h3>
       <form
         method="post"
         enctype="multipart/form-data"
@@ -64,109 +47,86 @@
       >
         <fieldset>
           <legend>Personal Information</legend>
-
-          <label for="name">Name:</label><br />
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Your name"
-            autofocus
-            required
-            pattern="[A-Za-z\s]{2,}"
-            title="Please enter at least 2 letters (A-Z)"
-          /><br /><br />
-
-          <label for="email">E-mail:</label><br />
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Your email address"
-            required
-            title="Enter a valid email address"
-          /><br /><br />
-
-          <label for="webpage">Web page:</label><br />
-          <input
-            type="url"
-            id="webpage"
-            name="webpage"
-            placeholder="Your website or profile"
-            title="Enter a valid URL (starting with http:// or https://)"
-          /><br /><br />
+          <label
+            >Name:
+            <input
+              type="text"
+              name="name"
+              required
+              pattern="[A-Za-z\s]{2,}"
+              title="At least 2 letters (A-Z)" /></label
+          ><br />
+          <label
+            >Email:
+            <input
+              type="email"
+              name="email"
+              required
+              title="Valid email" /></label
+          ><br />
+          <label>Web page: <input type="url" name="webpage" /></label>
         </fieldset>
 
         <fieldset>
           <legend>Message Details</legend>
+          <label
+            >Subject:
+            <select name="subject" required>
+              <option value="" disabled selected>Select</option>
+              <option value="general">General Inquiry</option>
+              <option value="portfolio">Portfolio Feedback</option>
+              <option value="job">Job Opportunity</option>
+              <option value="other">Other</option>
+            </select> </label
+          ><br />
 
-          <label for="subject">Subject:</label><br />
-          <select id="subject" name="subject" required>
-            <option value="" disabled selected>Select a subject</option>
-            <option value="general">General Inquiry</option>
-            <option value="portfolio">Portfolio Feedback</option>
-            <option value="job">Job Opportunity</option>
-            <option value="other">Other</option></select
-          ><br /><br />
-
-          <label for="topic">Choose a topic:</label><br />
-          <input
-            list="topics"
-            id="topic"
-            name="topic"
-            placeholder="Choose or type topic"
-          />
+          <label
+            >Topic:
+            <input
+              list="topics"
+              name="topic"
+              placeholder="Choose or type topic"
+            />
+          </label>
           <datalist id="topics">
             <option value="Frontend Development"></option>
             <option value="Backend Development"></option>
             <option value="AI & Machine Learning"></option>
             <option value="Databases"></option>
             <option value="DevOps"></option></datalist
-          ><br /><br />
+          ><br />
 
-          <label for="message">Message:</label><br />
-          <textarea
-            id="message"
-            name="message"
-            rows="4"
-            placeholder="Type your message here..."
-            required
-          ></textarea
-          ><br /><br />
+          <label
+            >Message:<br />
+            <textarea name="message" rows="4" required></textarea>
+          </label>
         </fieldset>
 
         <fieldset>
           <legend>Preferences</legend>
-
-          <label>
-            <input type="checkbox" name="wants_reply" /> I want a reply </label
-          ><br /><br />
-
-          <p>Receive a copy of the message?</p>
+          <label
+            ><input type="checkbox" name="wants_reply" /> I want a reply</label
+          ><br />
           <label
             ><input type="radio" name="copy_message" value="yes" /> Yes</label
-          ><br />
+          >
           <label
             ><input type="radio" name="copy_message" value="no" checked />
             No</label
-          ><br /><br />
+          >
         </fieldset>
 
         <fieldset>
           <legend>File Upload</legend>
-
-          <label for="file">Upload a file (max 10MB):</label><br />
-          <input
-            type="file"
-            id="file"
-            name="file"
-            title="Select a file to upload"
-          /><br /><br />
+          <label
+            >Upload a file (max 10MB): <input type="file" name="file"
+          /></label>
         </fieldset>
 
         <button type="submit">Send</button>
       </form>
     </aside>
+
     <footer>
       <section>
         <h3>Contact Information</h3>

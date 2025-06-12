@@ -1,47 +1,281 @@
-/* Grundläggande layout med Grid */
+/* --- Grundläggande reset och mobil-först basstil --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
 body {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0.5em;
-
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  gap: 0.5em;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  background-color: #f8f9fa;
+  color: #222;
+  padding: 1rem;
+  max-width: 100%; /* Flödande max-bredd */
+  margin: 0 auto;
 }
 
-p {
-  padding: 1em;
+/* --- Länkar --- */
+a {
+  color: #2a7ae2;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  text-decoration: underline;
 }
 
+/* --- Header med navigation --- */
 header {
-  background: red;
-  min-height: 200px;
-
-  grid-column-start: 1;
-  grid-column-end: 4;
+  background-color: #1e90ff;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-nav {
-  background: blue;
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0;
 }
 
-main {
-  background: green;
+nav li {
+  /* flex-basis för att kunna radbrytas */
+  flex: 1 1 auto;
+  max-width: 150px;
+  text-align: center;
 }
 
-section {
-  background: orange;
-}
-
+/* --- Main och Aside --- */
+main,
 aside {
-  background: pink;
-
-  grid-column-start: 3;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
 }
 
-footer {
-  background: brown;
+/* --- Layout för mobiler: enkel kolumn --- */
+body {
+  display: block;
+}
 
-  grid-column-start: 1;
-  grid-column-end: 4;
+/* --- Flödande bredd för innehåll --- */
+main,
+aside {
+  width: 100%;
+}
+
+/* --- Bild i portrait sektion --- */
+picture,
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+}
+
+/* --- Formulär styling --- */
+form fieldset {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.3rem;
+}
+
+form legend {
+  font-weight: bold;
+  padding: 0 0.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  font-family: inherit;
+  margin-top: 0.3rem;
+}
+
+button {
+  background-color: #1e90ff;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+button:hover,
+button:focus {
+  background-color: #0c62d1;
+}
+
+/* --- Footer --- */
+footer {
+  background-color: #222;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 0.5rem;
+}
+
+footer a {
+  color: #f4c242;
+}
+
+/* --- Media Queries --- */
+
+/* --- Tablets (1024px och mindre men över 480px) --- */
+@media (min-width: 481px) and (max-width: 1024px) {
+  body {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  /* Tvåkolumnslayout */
+  body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+  }
+
+  main {
+    column-count: 2; /* Text delas i två kolumner */
+    column-gap: 2rem;
+  }
+
+  aside {
+    padding: 1rem;
+  }
+
+  header,
+  footer {
+    grid-column: 1 / -1;
+  }
+}
+
+/* --- Desktop (över 1024px och upp till 1200px, flödande) --- */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  body {
+    max-width: 95%;
+    margin: 0 auto;
+  }
+
+  /* Layout som på tablet, två kolumner */
+  body {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1.5rem;
+  }
+
+  main {
+    column-count: 3; /* tre kolumner för text på desktop */
+    column-gap: 2rem;
+  }
+
+  header,
+  footer {
+    grid-column: 1 / -1;
+  }
+}
+
+/* --- Desktop (över 1200px, fixerad bredd) --- */
+@media (min-width: 1201px) {
+  body {
+    max-width: 1200px;
+    margin: 1rem auto;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 2rem;
+  }
+
+  main {
+    column-count: 3;
+    column-gap: 2rem;
+  }
+
+  header,
+  footer {
+    grid-column: 1 / -1;
+  }
+}
+
+/* --- Mobiler (max 480px) --- */
+@media (max-width: 480px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  main,
+  aside {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  main {
+    column-count: 1;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav li {
+    max-width: 100%;
+  }
+}
+
+/* --- Mycket små skärmar (under 100px) --- */
+@media (max-width: 100px) {
+  body {
+    max-width: 100px;
+  }
+}
+
+/* --- Printstil --- */
+@media print {
+  body {
+    font-size: 12pt;
+    color: black;
+    background: white;
+    padding: 0;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  header,
+  footer,
+  nav,
+  aside,
+  form,
+  picture,
+  figure {
+    all: unset; /* Ta bort bakgrunder och boxar */
+    display: block;
+  }
+
+  a {
+    color: black;
+    text-decoration: underline;
+  }
 }
