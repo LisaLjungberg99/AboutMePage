@@ -29,12 +29,27 @@
     </header>
     <main>
       <section>
-        <h2>Self-portrait</h2>
+        <h2>Portrait</h2>
         <figure>
-          <img src="selfportrait.jpg" alt="Self-portrait of Lisa Ljungberg" />
+          <picture>
+            <source
+              media="(max-width: 600px)"
+              srcset="images/portrait-mobile.png"
+              type="image/png"
+            />
+            <source
+              media="(min-width: 601px)"
+              srcset="images/portrait-desktop.png"
+              type="image/png"
+            />
+            <img
+              src="images/portrait-desktop.png"
+              alt="Portrait of Lisa Ljungberg"
+            />
+          </picture>
           <figcaption>
-            Taken with my digital camera in
-            <time datetime="2024-05">May 2024</time>.
+            Taken by Edvin with my iPhone,
+            <time datetime="2024-08">August 2024</time>.
           </figcaption>
         </figure>
       </section>
